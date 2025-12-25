@@ -227,7 +227,7 @@ const app = {
         this.setupCollision();
     },
 
-    /* ================= ACTIONS ================= */
+ 
     addShape: function (type) {
         if (!this.engine) return;
 
@@ -256,9 +256,9 @@ const app = {
     clearAll: function () {
         if (!this.engine) return;
         World.clear(this.engine.world);
-        Engine.clear(this.engine); // Reset ID counters etc
+        Engine.clear(this.engine); 
         this.setSelected(null);
-        this.setupBoundaries(); // Re-add walls
+        this.setupBoundaries(); 
     },
 
     togglePause: function () {
@@ -271,7 +271,7 @@ const app = {
             this.runner.enabled = !paused;
         }
 
-        // Toggle Icons
+        
         const playIcon = this.currentView === 'playground' ? document.getElementById('icon-play') : document.getElementById('icon-play-col');
         const pauseIcon = this.currentView === 'playground' ? document.getElementById('icon-pause') : document.getElementById('icon-pause-col');
 
@@ -289,7 +289,7 @@ const app = {
         }
     },
 
-    /* ================= SELECTION / PROPERTIES ================= */
+    
     setSelected: function (body) {
         this.selectedBody = body;
         const panel = document.getElementById('properties-panel');
@@ -299,7 +299,7 @@ const app = {
             panel.style.display = 'block';
             noSel.style.display = 'none';
 
-            // Sync Input Values
+            
             document.getElementById('input-color').value = body.render.fillStyle;
             document.getElementById('input-restitution').value = body.restitution;
             document.getElementById('val-restitution').textContent = body.restitution;
@@ -327,6 +327,6 @@ const app = {
     }
 };
 
-// Start
-window.app = app; // Expose to window for onclick
+
+window.app = app; 
 app.init();
